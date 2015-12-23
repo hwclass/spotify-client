@@ -17,29 +17,27 @@
 
   /*===CONTROLLERS===*/
   var TestController = require('./section/test/controller/TestController');
-  var ProductListController = require('./section/productList/controller/ProductListController');
+  //var ProductListController = require('./section/productList/controller/ProductListController');
 
   /*===DIRECTIVES===*/
   var TestComponent = require('./component/TestComponent');
 
-  angular.module('AngularCommonApp', ['ngRoute', 'ngCookies'])
+  angular.module('SpotifyClient', ['ngRoute', 'ngCookies'])
     .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/test', {
         templateUrl : './src/section/test/partial/test.html',
         controller : 'TestController'
       })
-      .when('/productList', {
-        templateUrl : './src/section/productList/partial/productList.html',
-        controller : 'ProductListController'
-      })
       .otherwise({
         redirectTo: '/'
     });
   }])
-  .controller('TestController', ['$scope', '$http', '$cookieStore', TestController])
+  .controller('TestController', ['$scope', '$http', '$cookieStore', TestController]);
+  /*
   .controller('ProductListController', ['$scope', '$http', '$cookieStore', ProductListController])
   .factory('TestService', ['$http', TestService])
   .directive('TestComponent', [TestComponent]);
+  */
 
 })();
