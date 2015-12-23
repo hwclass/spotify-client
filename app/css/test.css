@@ -1,0 +1,52 @@
+body {
+    font-family: 'Helvetica Neue', 'Lucida Grande', sans-serif;
+    font-size: 75%;
+}
+
+.content {
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 0 4px 6px 1px rgba(50, 50, 50, 0.14);
+    box-sizing: border-box;
+    color: black;
+    line-height: 1.5;
+    margin: 5.5em auto 0;
+    max-width: 640px;
+    padding: 30px 35px 30px 37px;
+    width: 100%;
+}
+
+.icon {
+    -webkit-margin-start: 25px;
+    content: -webkit-image-set( url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAQAAABpN6lAAAAOkElEQ…7az+fobVEgq8AB7+fjW6P/9jM8fF0/Hdwvo3ob+Bkdv///Vw8ylx1L+10AAAAASUVORK5CYII=) 1x, url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABrrFhUAAAC/VBMV…X0iO715+xlNJbIDStyiVj0Mvu87hY9yZRsM1ucs6CdvwFhF5OigQu5iQAAAABJRU5ErkJggg==) 2x);
+    float: right;
+    height: 128px;
+    margin-bottom: 10px;
+    margin-top: 4px;
+    width: 128px;
+}
+
+.content > span {
+    max-width: 416px;
+}
+
+.content > span {
+    display: block;
+}
+
+h1 {
+    font-size: 1.7em;
+    font-weight: normal;
+    line-height: 1.2em;
+    margin-top: 0;
+}
+
+a {
+    color: rgb(39, 110, 242);
+    text-decoration: none;
+}
+
+@media (max-width: 700px)
+body {
+    margin: 1em 2em 2em;
+}

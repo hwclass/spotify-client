@@ -38,3 +38,5 @@ var TestServiceProvider = function ($http) {
   })();
 
 }
+
+module.exports = TestServiceProvider;

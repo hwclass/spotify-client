@@ -6,8 +6,9 @@
 /*===CONFIGS===*/
 /*
 var UrlConfig = require('../../../config/UrlConfig');
-var TestConfig = require('../../../config/TestConfig');
 */
+//var TestConfig = require('../config/TestConfig');
+
 
 /*===MODELS===*/
 /*
@@ -17,6 +18,7 @@ var UserSession = require('../../../model/UserSession');
 */
 
 /*===PROVIDERS===*/
+//var TestServiceProvider = require('../serviceProvider/TestServiceProvider');
 /*
 var UserServiceProvider = require('../../../provider/UserServiceProvider');
 var AddressServiceProvider = require('../../../provider/AddressServiceProvider');
@@ -28,12 +30,10 @@ var TestService = require('../../../service/TestService');
 */
 
 /*===UTILITY===*/
-/*
-var TestUtility = require('../../../utility/TestUtility');
-*/
+//var TestUtility = require('../utility/TestUtility');
 
 /*===3RD PARTIES===*/
-var $ = require('jquery');
+//var $ = require('jquery');
 
 /**
  * @name TestController
@@ -44,6 +44,8 @@ var TestController = function($scope, $http, $cookieStore) {
   'use strict';
 
   //$scope.title = TestConfig.getTitle();
+
+  //console.dir(Spotify);
 
   //$scope.cities = [];
 
@@ -103,11 +105,13 @@ var TestController = function($scope, $http, $cookieStore) {
   buildUserDatToLogUserIn();
 
   /*Connect to UserService over UserServiceProvider to log the user in*/
-  TestServiceProvider($http).logUserIn(userRequest, function (data) {
+  /*
+  TestServiceProvider($http).getCities(function (data) {
     if(!TestUtility.isNull(data) && !TestUtility.isUndefined(data)) {
-      console.dir('user data : ' + data);
+      console.dir('cities data : ' + data);
     };
   });
+  */
 
 };
 

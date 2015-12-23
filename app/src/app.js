@@ -9,23 +9,24 @@
   /*===MODULES===*/
   require('angular');
   require('angular-route');
-  require('angular-animate');
+  //require('angular-animate');
   require('angular-module-cookies');
 
   /*===SERVICES===*/
-  var TestService = require('./service/TestService');
+  //var TestService = require('./service/TestService');
 
   /*===CONTROLLERS===*/
   var TestController = require('./section/test/controller/TestController');
   //var ProductListController = require('./section/productList/controller/ProductListController');
 
   /*===DIRECTIVES===*/
-  var TestComponent = require('./component/TestComponent');
+  //var TestComponent = require('./component/TestComponent');
+  var songWidgetComponent = require('./section/test/component/SongWidgetComponent');
 
   angular.module('SpotifyClient', ['ngRoute', 'ngCookies'])
     .config(['$routeProvider', function($routeProvider) {
     $routeProvider
-      .when('/test', {
+      .when('/saySomethingToPlay', {
         templateUrl : './src/section/test/partial/test.html',
         controller : 'TestController'
       })
@@ -33,7 +34,8 @@
         redirectTo: '/'
     });
   }])
-  .controller('TestController', ['$scope', '$http', '$cookieStore', TestController]);
+  .controller('TestController', ['$scope', '$http', TestController])
+  .directive('songwidgetcomponent', [songWidgetComponent]);
   /*
   .controller('ProductListController', ['$scope', '$http', '$cookieStore', ProductListController])
   .factory('TestService', ['$http', TestService])
