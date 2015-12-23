@@ -31,7 +31,7 @@
         controller : 'TestController'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/saySomethingToPlay'
     });
   }])
   .controller('TestController', ['$scope', '$http', TestController])
