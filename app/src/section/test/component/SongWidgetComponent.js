@@ -20,7 +20,8 @@ var SongWidgetComponent = function () {
         query += ' artist:' + artistName;
       }
       spotifyApi.searchTracks(query).then(function(response) {
-        if (response.tracks.items.length) {
+        if (typeof response.tracks.items.length !== 'undefined' && typeof response.tracks.items.length !== null) {
+          pushSongIntoSongList(response.tracks.items);
           var track = response.tracks.items[0];
           audio.src = track.preview_url;
           audio.play();
@@ -32,6 +33,15 @@ var SongWidgetComponent = function () {
     function communicateAction (text) {
       var rec = document.getElementById('conversation');
       rec.innerHTML += '<div class="action">' + text + '</div>';
+    }
+
+    function pushSongIntoSongList (songList) {
+      for (var songCounter = 0, len = songList.length; songCounter < len; songCounter++ ) {
+        var songListContainer = document.getElementById('songListContainer');
+        for (var artistCounter = 0, lenArtist = songList[songCounter]['artists'].length; artistCounter < lenArtist; artistCounter++) {
+          songListContainer.innerHTML += '<p>' + songList[songCounter]['name'] + ' ' + songList[songCounter]['artists'][artistCounter]['name'] + '</p>'
+        }
+      }
     }
 
     function recognized (text) {

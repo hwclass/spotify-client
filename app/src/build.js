@@ -46,7 +46,7 @@
 
 })();
 
-}).call(this,require("Wb8Gej"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_bcfa7c85.js","/")
+}).call(this,require("Wb8Gej"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_52a0683.js","/")
 },{"./section/test/component/SongWidgetComponent":2,"./section/test/controller/TestController":3,"Wb8Gej":14,"angular":9,"angular-module-cookies":5,"angular-route":7,"buffer":11}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
@@ -71,7 +71,8 @@ var SongWidgetComponent = function () {
         query += ' artist:' + artistName;
       }
       spotifyApi.searchTracks(query).then(function(response) {
-        if (response.tracks.items.length) {
+        if (typeof response.tracks.items.length !== 'undefined' && typeof response.tracks.items.length !== null) {
+          pushSongIntoSongList(response.tracks.items);
           var track = response.tracks.items[0];
           audio.src = track.preview_url;
           audio.play();
@@ -83,6 +84,15 @@ var SongWidgetComponent = function () {
     function communicateAction (text) {
       var rec = document.getElementById('conversation');
       rec.innerHTML += '<div class="action">' + text + '</div>';
+    }
+
+    function pushSongIntoSongList (songList) {
+      for (var songCounter = 0, len = songList.length; songCounter < len; songCounter++ ) {
+        var songListContainer = document.getElementById('songListContainer');
+        for (var artistCounter = 0, lenArtist = songList[songCounter]['artists'].length; artistCounter < lenArtist; artistCounter++) {
+          songListContainer.innerHTML += '<p>' + songList[songCounter]['name'] + ' ' + songList[songCounter]['artists'][artistCounter]['name'] + '</p>'
+        }
+      }
     }
 
     function recognized (text) {
